@@ -1,7 +1,10 @@
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
 from django.db import models
 from datetime import datetime
+
+
+class User(AbstractUser):
+    tg = models.CharField(max_length=100)
 
 
 class Designs(models.Model):
@@ -13,10 +16,7 @@ class Designs(models.Model):
 
     class Meta:
         verbose_name_plural = "designs"
-
-
-# class User(AbstractUser):
-#     tg = models.CharField(max_length=100)
+        db_table = 'designs'
 
 
 class Orders(models.Model):
@@ -28,3 +28,4 @@ class Orders(models.Model):
 
     class Meta:
         verbose_name_plural = "orders"
+        db_table = 'orders'

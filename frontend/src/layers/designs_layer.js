@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { DesignItem } from '../global_components'
+import { ApiService } from '../services/api_service'
 
 const DesignsLayer = () => {
 	const [designs_list, setDesignsList] = useState([])
 
 	useEffect(() => {
 		;(async () => {
-			const data = await fetch('http://127.0.0.1:8000/api/designs')
-			const designs = await data.json()
+			const designs = await ApiService('designs')
 			setDesignsList(designs)
 		})()
 	}, [])

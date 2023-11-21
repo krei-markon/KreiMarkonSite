@@ -23,7 +23,6 @@ const ordersSlice = createSlice({
 				orderSchema,
 			])
 
-			state.orders = action.payload.orders
 			state.orders_list = result
 			state.users = entities.users
 			state.orders = entities.orders

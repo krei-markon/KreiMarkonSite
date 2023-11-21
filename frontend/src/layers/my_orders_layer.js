@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOrders } from '../../src/redux/orders'
 import { OrderItem } from '../global_components'
+import { ApiService } from '../services/api_service'
 
 const MyOrdersLayer = () => {
 	const dispatch = useDispatch()
@@ -9,8 +10,7 @@ const MyOrdersLayer = () => {
 
 	useEffect(() => {
 		;(async () => {
-			const data = await fetch('http://127.0.0.1:8000/api/orders')
-			const orders = await data.json()
+			const orders = await ApiService('orders')
 			dispatch(setOrders({ orders: orders }))
 		})()
 	}, [dispatch])
