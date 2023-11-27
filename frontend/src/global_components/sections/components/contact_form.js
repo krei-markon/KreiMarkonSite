@@ -34,7 +34,7 @@ const ContactForm = props => {
 							<label htmlFor='email'>Почта</label>
 							<Field
 								name='email'
-								type='text'
+								type='email'
 								placeholder='antoniolksa@gmail.com'
 								className='h-10 border mt-1 rounded px-4 w-full bg-gray-50'
 							/>

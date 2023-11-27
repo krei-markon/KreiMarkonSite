@@ -1,12 +1,33 @@
 import { Form, Formik } from 'formik'
-import React from 'react'
-import { ContactForm, Sections, TaskForm } from '../global_components'
+import React, { useEffect, useState } from 'react'
+import { Sections, TaskForm, isAuth } from '../global_components'
+import { ApiService } from '../services/api_service'
+
+const OrderQuery = async values => {
+	await ApiService('orders/', {
+		method: 'post',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(values),
+	})
+}
 
 const OrderLayer = () => {
+	const [user, setUser] = useState(null)
 	const sections = [
 		{ id: '1', name: 'Техническое задание', code: TaskForm },
-		{ id: '2', name: 'Контактные данные', code: ContactForm },
+		// { id: '2', name: 'Контактные данные', code: ContactForm },
 	]
+
+	useEffect(() => {
+		;(async () => {
+			if (isAuth) {
+				const user = await ApiService('user/current')
+				setUser(user.username)
+			}
+		})()
+	}, [])
 
 	// console.log(Object.fromEntries(
 	// 	sections.map(item => [item.id, item.name])
@@ -31,13 +52,10 @@ const OrderLayer = () => {
 						task: '',
 						deadlines: '',
 						cnt: 0,
-						full_name: '',
-						telegram: '',
-						email: '',
 					}}
 					onSubmit={async values => {
-						await new Promise(r => setTimeout(r, 500))
-						alert(JSON.stringify(values, null, 2))
+						values.user = user
+						await OrderQuery(values)
 					}}
 				>
 					<Form>

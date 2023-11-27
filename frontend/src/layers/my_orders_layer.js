@@ -10,7 +10,7 @@ const MyOrdersLayer = () => {
 
 	useEffect(() => {
 		;(async () => {
-			const orders = await ApiService('orders')
+			const orders = await ApiService('orders/current')
 			dispatch(setOrders({ orders: orders }))
 		})()
 	}, [dispatch])

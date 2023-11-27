@@ -2,22 +2,40 @@ import { Field, useField, useFormikContext } from 'formik'
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import { format } from 'date-fns'
 
-const MyDatePicker = ({ name = '', className }) => {
-	const [field, meta, helpers] = useField(name)
-
-	const { value } = meta
-	const { setValue } = helpers
-
+const MyDatePicker = ({ ...props }) => {
+	const { setFieldValue } = useFormikContext()
+	const [field] = useField(props)
 	return (
 		<DatePicker
 			{...field}
-			selected={value}
-			onChange={date => setValue(date)}
-			className={className}
+			{...props}
+			selected={(field.value && new Date(field.value)) || null}
+			onChange={val => {
+				setFieldValue(field.name, format(new Date(val), 'yyyy-MM-dd'))
+			}}
 		/>
 	)
 }
+
+// const MyDatePicker = ({ name = '', className }) => {
+// 	const [field, meta, helpers] = useField(name)
+
+// 	const { value } = meta
+// 	const { setValue } = helpers
+
+// 	return (
+// 		<DatePicker
+// 			{...field}
+// 			autoComplete='off'
+// 			dateFormat={'yyyy-MM-dd'}
+// 			selected={value}
+// 			onChange={date => setValue(date)}
+// 			className={className}
+// 		/>
+// 	)
+// }
 
 const TaskForm = props => {
 	let formikProps = useFormikContext()
@@ -120,6 +138,16 @@ const TaskForm = props => {
 											clipRule='evenodd'
 										/>
 									</svg>
+								</button>
+							</div>
+						</div>
+						<div className='md:col-span-5 text-right'>
+							<div className='inline-flex items-end'>
+								<button
+									type='submit'
+									className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+								>
+									Submit
 								</button>
 							</div>
 						</div>

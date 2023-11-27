@@ -1,3 +1,3 @@
-FROM nginx:1.19.0-alpine
-
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+FROM nginx:latest
+RUN apt-get update && apt-get install -y procps
+RUN mkdir -p /home/app/staticfiles

@@ -1,26 +1,47 @@
 version: '3.7'
 
 services:
+  db:
+    image: postgres:latest
+    env_file:
+      - .env.postgres.docker
+    ports:
+      - 8566:5432
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      
   backend:
     volumes:
-      - static:/static
+      - ./backend:/backend
+      - django_static:/backend/build
+      - media:/backend/media
     env_file:
-      - .env
+      - .env.backend.docker
+      - .env.postgres.docker
     build:
       context: ./backend
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+
   frontend:
     build:
       context: ./frontend
     volumes:
-      - frontend:/app/build
+      - ./frontend:/frontend
+      - react_static:/frontend/build
   nginx:
     build:
       context: ./nginx
     volumes:
-      - static:/static
-      - frontend:/var/www/frontend
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - django_static:/var/www/frontend/django_static
+      - react_static:/var/www/frontend/react_static
+      - media:/data/web/media/
     ports:
       - "80:80"
     depends_on:
@@ -28,5 +49,7 @@ services:
       - frontend
 
 volumes:
-  static:
-  frontend:
+  db_data: 
+  django_static:
+  media:
+  react_static:

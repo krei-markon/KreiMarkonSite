@@ -27,14 +27,16 @@ from rest_framework_simplejwt.views import (
 )
 
 
-
 router = routers.DefaultRouter()
 router.register(r'designs', DesignsViewSet)
 router.register(r'orders', OrdersViewSet)
+router.register(r'user', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/user/current', UserCurrent.as_view(), name="user_current"),
+    path('api/orders/current', OrdersCurrent.as_view(), name="order_current"),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

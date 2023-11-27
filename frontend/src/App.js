@@ -1,11 +1,12 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { Footer, Header } from './global_components'
+import { Footer, Header, isAuth } from './global_components'
 import * as layers from './layers'
 
 const App = () => {
 	const location = useLocation()
+
 	return (
 		<div>
 			<div
@@ -20,9 +21,10 @@ const App = () => {
 			<main className='main'>
 				<Routes>
 					<Route path='/' element={<layers.MainLayer />} />
+					{!isAuth && <Route path='/login' element={<layers.LoginLayer />} />}
 					<Route path='/designs' element={<layers.DesignsLayer />} />
-					<Route path='/order' element={<layers.OrderLayer />} />
-					<Route path='/my_orders' element={<layers.MyOrdersLayer />} />
+					{isAuth && <Route path='/order' element={<layers.OrderLayer />} />}
+					{isAuth && <Route path='/my_orders' element={<layers.MyOrdersLayer />} />}
 				</Routes>
 			</main>
 

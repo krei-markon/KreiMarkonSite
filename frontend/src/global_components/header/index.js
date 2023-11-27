@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import HamburgerButton from './components/hamburger_button'
-import Menu from './components/menu'
+import { Menu } from './components/menu'
+export { isAuth } from './components/menu'
 
 const Header = () => {
 	const toggle = useSelector(state => state.menu.toggle)
