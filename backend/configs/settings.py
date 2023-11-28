@@ -145,7 +145,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'krei_markon.User'
+AUTH_USER_MODEL = 'krei_markon.CustomUser'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -190,7 +190,9 @@ REST_FRAMEWORK = {
     # ]
 }
 
-if DJANGO_ENV:
+LOGGING_PATH = os.getenv('LOGGING_PATH')
+
+if LOGGING_PATH:
     LOGGING = {
         "version": 1,
         "disable_existing_loggers": False,
@@ -198,7 +200,7 @@ if DJANGO_ENV:
             "file": {
                 "level": "DEBUG",
                 "class": "logging.FileHandler",
-                "filename": BASE_DIR / str(os.getenv('LOGGING_PATH')),
+                "filename": BASE_DIR / LOGGING_PATH,
             },
         },
         "loggers": {

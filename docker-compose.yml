@@ -34,6 +34,7 @@ services:
     volumes:
       - ./frontend:/frontend
       - react_static:/frontend/build
+
   nginx:
     build:
       context: ./nginx

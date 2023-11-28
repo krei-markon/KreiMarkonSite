@@ -5,16 +5,13 @@
 # Docker
 .docker
 .dockerignore
-debug.log
 
 # Python
 /__pycache__/
 /*/__pycache__/
 /*/*/__pycache__/
 /*/*/*/__pycache__/
-.env/
-.venv/
-venv/
 
-# Local PostgreSQL data
-data/
+# My
+.env*
+*.log

@@ -316,3 +316,4 @@ yarn-error.log*
 // */.env*
 */media/
 /env/
+/backend/*/migrations/

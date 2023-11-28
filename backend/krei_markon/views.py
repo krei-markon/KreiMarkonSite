@@ -1,17 +1,18 @@
 from django.shortcuts import render
-from .models import Designs, User
+from .models import Designs, CustomUser
 from .serializers import *
 from .permissions import *
 from rest_framework import viewsets, mixins, views, response, generics
 
 logger = logging.getLogger(__name__)
 
+
 class UserViewSet(viewsets.GenericViewSet, mixins.CreateModelMixin):
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
 
     def perform_create(self, serializer):
-        user = User.objects.create_user( # type: ignore
+        user = CustomUser.objects.create_user(  # type: ignore
             **serializer.validated_data)  # type: ignore
         user.set_password(serializer.validated_data['password'])
 
@@ -38,7 +39,7 @@ class OrdersViewSet(viewsets.ModelViewSet):
     queryset = Orders.objects.all()
 
     permission_classes = [
-        permissions.IsAuthenticated, IsOwnerPermisstion]    
+        permissions.IsAuthenticated, IsOwnerPermisstion]
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -55,7 +56,7 @@ class OrdersViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
         return super().perform_update(serializer)
-    
+
 
 class OrdersCurrent(generics.ListAPIView):
     serializer_class = OrdersSerializer
@@ -67,4 +68,3 @@ class OrdersCurrent(generics.ListAPIView):
         """
         user = self.request.user
         return Orders.objects.filter(user=user)
-        
