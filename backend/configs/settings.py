@@ -164,12 +164,16 @@ ALLOWED_HOSTS = ['*']
 REACT_APP_HOST_IP_ADDRESS = os.getenv(
     'REACT_APP_HOST_IP_ADDRESS') or 'localhost'
 
+DNS_NAME = os.getenv(
+    'DNS_NAME') or 'localhost'
+
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
     'http://0.0.0.0',
-    f'http://{REACT_APP_HOST_IP_ADDRESS}'
+    f'http://{REACT_APP_HOST_IP_ADDRESS}',
+    f'http://{DNS_NAME}',
 ]
 
 # For debug
