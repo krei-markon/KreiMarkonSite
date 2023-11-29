@@ -24,6 +24,7 @@ services:
     environment:
       - DJANGO_ENV=${DJANGO_ENV}
       - REACT_APP_HOST_IP_ADDRESS=${IP_ADDRESS}
+      - DNS_NAME=${DNS_NAME}
     build:
       context: ./backend
     ports:
