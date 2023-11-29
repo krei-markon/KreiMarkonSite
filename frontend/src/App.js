@@ -6,6 +6,7 @@ import * as layers from './layers'
 
 const App = () => {
 	const location = useLocation()
+	console.log(process.env)
 
 	return (
 		<div>

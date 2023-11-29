@@ -31,7 +31,7 @@ class DesignsViewSet(viewsets.ModelViewSet):
     queryset = Designs.objects.all()
 
     permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly, permissions.IsAdminUser]
+        permissions.IsAuthenticatedOrReadOnly]
 
 
 class OrdersViewSet(viewsets.ModelViewSet):

@@ -24,7 +24,7 @@ ADMINS = (
 DJANGO_ENV = os.getenv('DJANGO_ENV') or 'development'
 
 ENVIRONMENTS = {
-    'development': ['.env.backend.local', '.env.postgres.local'],
+    'development': ['../configs/development/.env.backend', '../configs/development/.env.postgres', '../configs/development/.env'],
     'docker': [],
 }
 
@@ -42,9 +42,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -163,13 +160,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS
 ALLOWED_HOSTS = ['*']
+
+REACT_APP_HOST_IP_ADDRESS = os.getenv(
+    'REACT_APP_HOST_IP_ADDRESS') or 'localhost'
+
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
     'http://0.0.0.0',
-    'http://193.151.237.155:5276',
-    'http://193.151.237.155'
+    f'http://{REACT_APP_HOST_IP_ADDRESS}'
 ]
 
 # For debug

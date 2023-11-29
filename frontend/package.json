@@ -10,6 +10,7 @@
 		"@testing-library/user-event": "^13.5.0",
 		"classnames": "^2.3.2",
 		"date-fns": "^2.30.0",
+		"env-cmd": "^10.1.0",
 		"formik": "^2.4.5",
 		"normalizr": "^3.6.2",
 		"react": "^18.2.0",
@@ -23,7 +24,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "cross-env BROWSER=browser react-scripts start",
+		"start": "env-cmd -f ../configs/development/.env cross-env BROWSER=browser react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

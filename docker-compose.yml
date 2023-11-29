@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:latest
     env_file:
-      - .env.postgres.docker
+      - ./configs/production/.env.postgres
     ports:
-      - 8566:5432
+      - ${DB_PORT}:5432
     deploy:
       restart_policy:
         condition: on-failure
@@ -15,24 +15,30 @@ services:
       
   backend:
     volumes:
-      - ./backend:/backend
+      # - ./backend:/backend
       - django_static:/backend/build
       - media:/backend/media
     env_file:
-      - .env.backend.docker
-      - .env.postgres.docker
+      - ./configs/production/.env.backend
+      - ./configs/production/.env.postgres
+    environment:
+      - DJANGO_ENV=${DJANGO_ENV}
+      - REACT_APP_HOST_IP_ADDRESS=${IP_ADDRESS}
     build:
       context: ./backend
     ports:
-      - "8000:8000"
+      - ${BACKEND_PORT}:8000
     depends_on:
       - db
 
   frontend:
     build:
       context: ./frontend
+    environment:
+      - REACT_APP_HOST_IP_ADDRESS=${IP_ADDRESS}
+      - REACT_APP_BACKEND_PORT=${BACKEND_PORT}
     volumes:
-      - ./frontend:/frontend
+      # - ./frontend:/frontend
       - react_static:/frontend/build
 
   nginx:
@@ -44,7 +50,7 @@ services:
       - react_static:/var/www/frontend/react_static
       - media:/data/web/media/
     ports:
-      - "80:80"
+      - ${NGINX_PORT}:80
     depends_on:
       - backend
       - frontend
