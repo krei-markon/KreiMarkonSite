@@ -1,5 +1,48 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.autopep8",
+        "ms-python.black-formatter",
+        "builder.Builder",
+        "formulahendry.code-runner",
+        "streetsidesoftware.code-spell-checker",
+        "adpyke.codesnap",
+        "naumovs.color-highlight",
+        "cweijan.dbclient-jdbc",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "Syler.ignore",
+        "ms-vscode.live-server",
+        "ritwickdey.LiveServer",
+        "ms-vsliveshare.vsliveshare",
+        "christian-kohler.path-intellisense",
+        "cweijan.vscode-postgresql-client2",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "donjayamanne.python-environment-manager",
+        "donjayamanne.python-extension-pack",
+        "streetsidesoftware.code-spell-checker-russian",
+        "bradlc.vscode-tailwindcss",
+        "Gruntfuggly.todo-tree",
+        "aaron-bond.better-comments",
+        "PKief.material-icon-theme",
+        "KevinRose.vsc-python-indent",
+        "SimonSiefke.svg-preview",
+        "wayou.vscode-todo-highlight",
+        "enkia.tokyo-night",
+        "dsznajder.es7-react-js-snippets",
+        "alefragnani.project-manager",
+        "DavidAnson.vscode-markdownlint",
+        "mechatroner.rainbow-csv"
+      ]
+    }
   }
 }
