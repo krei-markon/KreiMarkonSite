@@ -88,7 +88,7 @@
 
 Концепт многостраничного сайта, меню всегда тащим за собой, что то похожее как [здесь](https://queensymphony.ai/). Хотим запомниться, поэтому принимаются идеи дл главной страницы и нестандартные решения
 
-- [ ] [#1](https://github.com/krei-markon/KreiMarkonSite/issues/1)
+- [ ] [Дизайн главной страницы](https://github.com/krei-markon/KreiMarkonSite/issues/1)
 - [ ] Станица с кейсами
 - [ ] Страница о нас
 
@@ -97,13 +97,13 @@
 Организовать `CRM` систему на сайте. Шаблон в `telegram`, подробная информация доступна участникам проекта в [репозитории](https://github.com/krei-markon/KreiMarkonBot)
 
 - [x] Создать шаблон в `telegram`
-- [ ] [#11](https://github.com/krei-markon/KreiMarkonSite/issues/11)
+- [ ] [Перенос и разработка CRM для заказов дизайнов](https://github.com/krei-markon/KreiMarkonSite/issues/11)
 
 ### Кабинет дизайнера
 
 Реализовать собственны стек технологий для привлечения дизайнеров. Туда входит:
 
-- [ ] [#4](https://github.com/krei-markon/KreiMarkonSite/issues/4)
+- [ ] [Файловая база данных для работ/разработок дизанейров](https://github.com/krei-markon/KreiMarkonSite/issues/4)
 - [ ] Возможность контроля версий
 - [ ] Связь с клиентом через `CRM` и отчетность итераций
 
@@ -118,5 +118,5 @@
 
 Реализовать кабинет админа, где тот сможет производить `lead` рассылку, искать предполагаемых клиентов и контролировать этапы разработки продуктов
 
-- [ ] [#10](https://github.com/krei-markon/KreiMarkonSite/issues/10)
+- [ ] [База данных предполагаемых пользователей](https://github.com/krei-markon/KreiMarkonSite/issues/10)
 - [ ] `Lead` рассылка
