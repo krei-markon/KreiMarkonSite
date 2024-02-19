@@ -1,49 +1,70 @@
-# Krei Markon
-
----
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/krei-markon/KreiMarkonSite?quickstart=1)
+# Сайт Krei Markon
 
 ## Содержание
 
-- [Идея](#идея)
+- [Описание](#описание)
+  - [Идея](#идея)
+  - [Материалы](#материалы)
+  - [Codespaces](#codespaces)
 - [Стек Технологий](#стек-технологий)
+  - [Design](#design)
   - [Backend](#backend)
   - [Frontend](#frontend)
   - [Production](#production)
 - [Запуск](#запуск)
-- [Масштабирование](#масштабирование)
-- [Дизайн](#дизайн)
+- [План](#план)
+  - [Дизайн](#дизайн)
+  - [CRM](#crm)
+  - [Кабинет дизайнера](#кабинет-дизайнера)
+  - [Кабинет клиента](#кабинет-клиента)
+  - [Кабинет администратора](#кабинет-администратора)
 
----
+## Описание
 
-## Идея
+Сайт дизайн студии **Krei Markon**
 
-Сайт дизайн студии ***Krei Markon***
+### Идея
 
----
+Наша цель создать целостную автономную экосистему, способную объединить работу дизайнеров и заказчиков для создания готового продукта. Упрощающая все промежуточные этапы разработки
+
+### Материалы
+
+- Проект на `GitHub`: [ссылка](https://github.com/orgs/krei-markon/projects/2)
+- Презентация проекта: [ссылка](https://docs.google.com/presentation/d/1CMo-88mAKmbrTbQcbS13fPECzOtIU8zMQFkYXHSG2uE/edit?usp=sharing)
+- `Behance` студии: [ссылка](https://www.behance.net/krei-markon)
+- `Dribbble` студии: [ссылка](https://dribbble.com/krei-markon)
+- `Figma` студии: [ссылка](https://www.figma.com/files/recents-and-sharing/recently-viewed?fuid=1325803962736052548)
+- `Builder.io` [ссылка](https://www.builder.io/)
+
+### Codespaces
+
+Для разработки настроена среда. Для её использования нажмите на кнопку ниже:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/krei-markon/KreiMarkonSite?quickstart=1)
 
 ## Стек Технологий
 
+### Design
+
+- `Figma`
+
 ### Backend
 
-1. `Django`
-2. `Postgresql`
-3. `Rest-Api`
+- `Django`
+- `Postgresql`
+- `Rest-Api`
 
 ### Frontend
 
-1. `React`
-2. `Redux`
-3. `Tailwind`
+- `React`
+- `Redux`
+- `Tailwind`
 
 ### Production
 
-1. `Nginx`
-2. `Docker`
-3. `Docker Compose`
-
----
+- `Nginx`
+- `Docker`
+- `Docker Compose`
 
 ## Запуск
 
@@ -61,40 +82,41 @@
  source frontend.sh
  ```
 
----
+## План
 
-## Масштабирование
-
-1. Далее планируется организовать `CRM` систему на сайте, шаблон для который уже реализован в `telegram`
-2. Реализовать собственны стек технологий для привлечения дизайнеров
-3. Сформировать кабинеты и функционалы трех уровней:
-
-- Клиент
-- Дизайнер
-- Сервис
-
-Похожее реализовано в телеграм боте, с функционалом которого можно ознакомиться в презентации: [ссылка](https://docs.google.com/presentation/d/1WKvUbvBe3qrHjb-52ZIlfuUqy4FXi_L4zd3C77jvUL0/edit?usp=sharing)
-
----
-
-## Дизайн
-
-Реализуем три страницы:
-
-1. Главная
-2. Кейсы
-3. О нас
+### Дизайн
 
 Концепт многостраничного сайта, меню всегда тащим за собой, что то похожее как [здесь](https://queensymphony.ai/). Хотим запомниться, поэтому принимаются идеи дл главной страницы и нестандартные решения
 
-### Главная
+- [ ] [#1](https://github.com/krei-markon/KreiMarkonSite/issues/1)
+- [ ] Станица с кейсами
+- [ ] Страница о нас
 
-- Была идея с лого на нем и какой-то анимацией
+### CRM
 
-### Кейсы
+Организовать `CRM` систему на сайте. Шаблон в `telegram`, подробная информация доступна участникам проекта в [репозитории](https://github.com/krei-markon/KreiMarkonBot)
 
-- Хочется, чтобы бы были интересно представлены, аля на голом торсе мужика
+- [x] Создать шаблон в `telegram`
+- [ ] [#11](https://github.com/krei-markon/KreiMarkonSite/issues/11)
 
-### О нас
+### Кабинет дизайнера
 
-- Рассказ о студии, наши фотки или персонажи
+Реализовать собственны стек технологий для привлечения дизайнеров. Туда входит:
+
+- [ ] [#4](https://github.com/krei-markon/KreiMarkonSite/issues/4)
+- [ ] Возможность контроля версий
+- [ ] Связь с клиентом через `CRM` и отчетность итераций
+
+### Кабинет клиента
+
+Реализовать удобный кабинет клиента, где тот сможет отслеживать этап разработки
+
+- [ ] Реализовать взаимодействие клиента с дизайнером через `CRM`
+- [ ] История заказов, этапы реализации
+
+### Кабинет администратора
+
+Реализовать кабинет админа, где тот сможет производить `lead` рассылку, искать предполагаемых клиентов и контролировать этапы разработки продуктов
+
+- [ ] [#10](https://github.com/krei-markon/KreiMarkonSite/issues/10)
+- [ ] `Lead` рассылка
